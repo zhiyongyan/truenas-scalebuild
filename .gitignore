@@ -8,3 +8,7 @@ dist/
 scale_build.egg-info/
 scale_build/__pycache__/
 venv-*
+conf/root/*
+conf/root/.zshrc
+conf/root/.zsh_history
+conf/root/.oh-my-zsh
