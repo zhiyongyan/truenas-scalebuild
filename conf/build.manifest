@@ -117,14 +117,14 @@
 		{
 			"name": "openzfs",
 			"repo": "https://github.com/truenas/zfs",
-			"branch": "truenas/zfs-2.0-release",
+			"branch": "nfs4acl_xdr_updated",
 			"predepscmd": "cp -r contrib/truenas debian",
 			"generate_version": false
 		},
 		{
 			"name": "truenas_samba",
 			"repo": "https://github.com/truenas/samba",
-			"branch": "SCALE-v4-13-stable",
+			"branch": "add-json-to-ctdb",
 			"generate_version": false
 		},
 		{
