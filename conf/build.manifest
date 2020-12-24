@@ -124,7 +124,7 @@
 		{
 			"name": "truenas_samba",
 			"repo": "https://github.com/truenas/samba",
-			"branch": "add-json-to-ctdb",
+			"branch": "SCALE-v4-13-stable",
 			"generate_version": false
 		},
 		{
