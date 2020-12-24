@@ -191,7 +191,7 @@
 		},
 		{
 			"name": "sedutil",
-			"repo": "https://github.com/amotin/sedutil",
+			"repo": "https://github.com/truenas/sedutil",
 			"branch": "master"
 		},
 		{
@@ -294,6 +294,11 @@
 			"name": "k3s",
 			"repo": "https://github.com/truenas/k3s",
 			"branch": "truenas/master"
+		},
+		{
+			"name": "py_sgio",
+			"repo": "https://github.com/truenas/py-sgio",
+			"branch": "master"
 		},
 		{
 			"name": "py_sgpersist",
