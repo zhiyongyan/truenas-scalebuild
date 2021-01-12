@@ -40,8 +40,10 @@ export LANG="C"
 
 # Passed along to WAF for parallel build
 export DEB_BUILD_OPTIONS="parallel=$(nproc)"
+export CONCURRENCY_LEVEL=6
+export MAKEFLAGS="-j6"
 
-# Never go full interactive on any packages
+# Never go full interactive on any packages#
 export DEBIAN_FRONTEND="noninteractive"
 
 # Source helper functions
@@ -64,6 +66,10 @@ Pin-Priority: 950
 Package: *netatalk*
 Pin: version 3.1.12~ix*
 Pin-Priority: 950
+
+Package: *kernel*
+Pin: origin "" 
+Pin-Priority: 1000 
 
 Package: *zfs*
 Pin: version 2.0.*
@@ -98,7 +104,7 @@ make_bootstrapdir() {
 
 	# Setup our ramdisk, up to 4G should suffice
 	mkdir -p ${TMPFS}
-	mount -t tmpfs -o size=8G tmpfs ${TMPFS}
+	#mount -t tmpfs -o size=8G tmpfs ${TMPFS}
 
 	# Check if we should invalidate the base cache
 	validate_basecache "$CACHENAME"
@@ -399,7 +405,7 @@ build_dpkg() {
 	prebuild="$3"
 	subarg="$4"
 	generate_version="$5"
-	deflags="-us -uc -b"
+	deflags="-j$(nproc) -us -uc -b"
 
 	# Check if we have a valid sub directory for these sources
 	if [ -z "$subarg" -o "$subarg" = "null" ] ; then
@@ -456,6 +462,7 @@ build_dpkg() {
 
 	# Build the package
 	#chroot ${DPKG_OVERLAY} /bin/bash -c "cd $srcdir && debuild $deflags" || exit_err "Failed to build package"
+	#chroot ${DPKG_OVERLAY} /bin/bash -c "cd $srcdir && debuild $deflags"
 	chroot ${DPKG_OVERLAY} /bin/bash -c "cd $srcdir && debuild $deflags"
         if [ $? -ne 0 ] ; then
 		if [ -n "${PKG_DEBUG}" ] ; then

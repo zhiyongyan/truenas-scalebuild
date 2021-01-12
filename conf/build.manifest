@@ -51,6 +51,7 @@
 	},
 	"base-packages": [
 		"dosfstools",
+		"kernel",
 		"consul",
 		"firmware-bnx2",
 		"firmware-bnx2x",
@@ -108,6 +109,11 @@
 			"name": "debootstrap",
 			"repo": "https://github.com/truenas/debootstrap",
 			"branch": "master"
+		},
+		{
+			"name": "kernel",
+			"repo": "https://github.com/anodos325/linux",
+			"branch": "linux-rolling-lts"
 		},
 		{
 			"name": "nfs4xdr_acl_tools",
