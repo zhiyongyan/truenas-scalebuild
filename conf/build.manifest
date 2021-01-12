@@ -51,15 +51,18 @@
 	},
 	"base-packages": [
 		"dosfstools",
+		"linux-truenas-libc-dev",
+		"linux-headers-truenas-amd64",
+		"linux-image-truenas-amd64",
 		"consul",
 		"firmware-bnx2",
 		"firmware-bnx2x",
 		"firmware-cavium",
-		"firmware-linux",
 		"firmware-myricom",
 		"firmware-netronome",
 		"firmware-netxen",
 		"firmware-realtek",
+		"firmware-linux",
 		"grub-pc",
 		"grub-pc-bin",
 		"grub-efi-amd64",
@@ -111,6 +114,8 @@
 		}
 	],
 	"iso-packages": [
+		"bzip2",
+		"linux-image-truenas-amd64",
 		"dialog",
 		"jq",
 		"live-boot",
@@ -122,6 +127,16 @@
 	],
 	"sources": [
 		{
+			"name": "debootstrap",
+			"repo": "https://github.com/truenas/debootstrap",
+			"branch": "master"
+		},
+		{
+			"name": "kernel",
+			"repo": "https://github.com/anodos325/linux",
+			"branch": "scale_testing2"
+		},
+		{
 			"name": "nfs4xdr_acl_tools",
 			"repo": "https://github.com/truenas/nfs4xdr-acl-tools",
 			"branch": "master"
@@ -129,8 +144,9 @@
 		{
 			"name": "openzfs",
 			"repo": "https://github.com/truenas/zfs",
-			"branch": "truenas/zfs-2.0-release",
+			"branch": "updated_nfs4acl_xdr",
 			"predepscmd": "cp -r contrib/truenas debian",
+			"kernel_module": true,
 			"generate_version": false
 		},
 		{
@@ -175,6 +191,7 @@
 			"name": "scst",
 			"repo": "https://github.com/truenas/scst",
 			"prebuildcmd": "make dpkg DEBEMAIL=no-reply@ixsystems.com DEBFULLNAME=TrueNAS",
+			"kernel_module": true,
 			"branch": "v3.5-branch"
 		},
 		{
