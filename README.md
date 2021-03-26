@@ -17,8 +17,9 @@ In addition to the host, you will want to pre-install the following packages:
 * git
 * squashfs-tools
 * unzip
+* mtools
 
-``` % sudo apt install build-essential debootstrap git squashfs-tools unzip```
+``` % sudo apt install build-essential debootstrap git squashfs-tools unzip mtools```
 
 ## Usage
 
