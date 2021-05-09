@@ -76,3 +76,4 @@ docker:x:999:
 libvirt-qemu:x:64055:libvirt-qemu
 haproxy:x:130:
 uuidd:x:131:
+apt-cacher-ng:x:132:
