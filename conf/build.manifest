@@ -118,6 +118,9 @@ apt_preferences:
 - Package: "python3-*"
   Pin: "origin \"\""
   Pin-Priority: 950
+- Package: "*gcc*"
+  Pin: "origin \"\""
+  Pin-Priority: 950
 - Package: "waagent"
   Pin: "origin \"\""
   Pin-Priority: 950
@@ -193,6 +196,10 @@ iso-packages:
 # to be built
 ############################################################################
 sources:
+- name: gcc
+  repo: https://salsa.debian.org/toolchain-team/gcc
+  branch: 10.3.0-12
+  batch_priority: 0
 - name: waagent
   repo: https://github.com/truenas/WALinuxAgent.git
   branch: truenas/master
@@ -209,6 +216,8 @@ sources:
   repo: https://github.com/truenas/linux
   branch: SCALE-v5.10-stable
   batch_priority: 0
+  explicit_deps:
+    - gcc
   env:
     CONFIG_DEBUG_INFO: "Y"
     CONFIG_LOCALVERSION: "+truenas"
