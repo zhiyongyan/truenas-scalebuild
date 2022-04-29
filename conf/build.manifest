@@ -312,7 +312,7 @@ sources:
   generate_version: false
 - name: py_libzfs
   repo: https://github.com/truenas/py-libzfs
-  branch: master
+  branch: NAS-115818.22_12
   explicit_deps:
     - openzfs
 - name: zettarepl
