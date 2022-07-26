@@ -65,8 +65,8 @@ class BuildPackageMixin:
 
         if self.kernel_module:
             self.logger.debug('Installing truenas linux headers')
-            self.run_in_chroot('apt install -y /packages/linux-headers-truenas*')
-            self.run_in_chroot('apt install -y /packages/linux-image-truenas*')
+            self.run_in_chroot('apt install -y /packages/linux-headers*')
+            self.run_in_chroot('apt install -y /packages/linux-image*')
 
         for predep_entry in self.predepscmd:
             if isinstance(predep_entry, dict):
