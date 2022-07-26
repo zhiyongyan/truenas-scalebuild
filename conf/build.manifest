@@ -266,11 +266,8 @@ sources:
   repo: https://github.com/truenas/inadyn.git
 - name: kernel
   repo: https://github.com/truenas/linux
-  branch: truenas/linux-5.15
+  branch: NAS-117105
   batch_priority: 0
-  env:
-    CONFIG_DEBUG_INFO: "Y"
-    CONFIG_LOCALVERSION: "+truenas"
   predepscmd:
     - "apt install -y flex bison dwarves libssl-dev"
     # We remove git files because kernel makefile tries to interact with git for determining version
@@ -279,21 +276,12 @@ sources:
     - "make defconfig"
     - "./scripts/kconfig/merge_config.sh .config scripts/package/truenas/debian_amd64.config"
     - "./scripts/kconfig/merge_config.sh .config scripts/package/truenas/truenas.config"
-    - env_checks:
-        - key: DEBUG_KERNEL
-          value: true
-      command: "./scripts/kconfig/merge_config.sh .config scripts/package/truenas/debug.config"
-    - env_checks:
-        - key: EXTRA_KERNEL_CONFIG
-          value: true
-      command: "./scripts/kconfig/merge_config.sh .config scripts/package/truenas/extra.config"
+    - "./scripts/kconfig/merge_config.sh .config scripts/package/truenas/tn-production.config"
     - "make syncconfig"
     - "make archprepare"
     - "./scripts/package/mkdebian"
   buildcmd:
-    - "cp -a .config /"
-    - "make distclean"
-    - "cp -a  /.config .config"
+    - "rm -rf .config.old"
     - "make -j$(nproc) bindeb-pkg"
 - name: nfs4xdr_acl_tools
   repo: https://github.com/truenas/nfs4xdr-acl-tools
