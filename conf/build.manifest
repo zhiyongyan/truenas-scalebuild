@@ -461,18 +461,18 @@ sources:
   branch: main
 - name: truenas_files
   repo: https://github.com/truenas/middleware
-  branch: master
+  branch: NAS-117831
   subdir: src/freenas
 - name: middlewared
   repo: https://github.com/truenas/middleware
-  branch: master
+  branch: NAS-117831
   subdir: src/middlewared
 - name: midcli
   repo: https://github.com/truenas/midcli
   branch: master
 - name: truenas
   repo: https://github.com/truenas/middleware
-  branch: master
+  branch: NAS-117831
   subdir: debian
 - name: truecommand_stats
   repo: https://github.com/truenas/truecommand-stats
@@ -487,7 +487,7 @@ sources:
   generate_version: false
 - name: grub2
   repo: https://github.com/truenas/grub2
-  branch: master
+  branch: NAS-117831
   predepscmd:
     - "apt install -y wget xz-utils"
     - "./pull.sh"
