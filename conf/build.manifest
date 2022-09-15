@@ -420,7 +420,7 @@ sources:
   branch: stable/angelfish
 - name: zectl
   repo: https://github.com/truenas/zectl
-  branch: stable/angelfish
+  branch: NAS-117752
   predepscmd:
     - "cp -a packaging/debian ."
   deps_path: packaging/debian
