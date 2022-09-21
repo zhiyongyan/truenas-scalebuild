@@ -323,7 +323,7 @@ sources:
 - name: openzfs
   repo: https://github.com/truenas/zfs
   batch_priority: 0
-  branch: release/22.02.3
+  branch: NAS-117845-dbg
   predepscmd:
     - "cp -r contrib/truenas debian"
   deps_path: contrib/truenas
@@ -479,7 +479,7 @@ sources:
   branch: release/22.02.3
 - name: collectd
   repo: https://github.com/truenas/collectd
-  branch: release/22.02.3
+  branch: stable/angelfish
   predepscmd:
     - "apt install -y wget xz-utils"
     - "./pull.sh"
